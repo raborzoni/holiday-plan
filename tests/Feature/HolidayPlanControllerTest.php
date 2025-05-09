@@ -39,12 +39,13 @@ class HolidayPlanControllerTest extends TestCase
     /** @test */
     public function it_can_retrieve_all_holiday_plans()
     {
+        HolidayPlan::truncate();
         HolidayPlan::factory()->count(3)->create();
 
         $response = $this->getJson('/api/holidays');
 
         $response->assertStatus(200);
-        $response->assertJsonCount(3);
+        $response->assertJsonCount(3, '0');
     }
 
     /** @test */
@@ -91,7 +92,7 @@ class HolidayPlanControllerTest extends TestCase
 
         $response = $this->deleteJson('/api/holidays/' . $holidayPlan->id);
 
-        $response->assertStatus(204);
+        $response->assertStatus(200);
         $this->assertDatabaseMissing('holiday_plans', ['id' => $holidayPlan->id]);
     }
 

@@ -71,7 +71,7 @@ class HolidayPlanController extends Controller
             ], 404);
         }
         
-        return response()->json($holidayPlan);
+        return response()->json(['message' => 'Aqui está o seu plano ' . $holidayPlan->title . '.', $holidayPlan]);
     }
 
     /**
