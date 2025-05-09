@@ -49,7 +49,7 @@ class Handler extends ExceptionHandler
     {
         if ($exception instanceof \Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException) {
             return response()->json([
-                'message' => 'Erro de método. Por favor, escolha o método correto'
+                'message' => 'Method error. Please choose the correct method.'
             ], 405);
         }
 
