@@ -26,7 +26,7 @@ class ApiAuthController extends Controller
         $user = User::create($request->toArray());
         $token = $user->createToken($user->name)->accessToken;
         $response = [
-            'message' => 'Usuário criado com SUCESSO! Aproveite seu plano de férias ' . $user->name . '!',
+            'message' => 'User created SUCCESSFULLY! Enjoy your Holiday plan ' . $user->name . '!',
             'token' => $token
         ];
         return response($response, 200);
@@ -48,17 +48,17 @@ class ApiAuthController extends Controller
                 $accessToken = $tokenResult->accessToken;
 
                 $response = [
-                    'message' => 'Bem Vindo a BUZZVEL e ao seu PLANEJAMENTO DE FÉRIAS ' . $user->name . '!',
+                    'message' => 'Welcome to BUZZVEL and your HOLIDAY PLANNING ' . $user->name . '!',
                     'token' => $tokenResult->accessToken,
                 ];
 
                 return response($response, 200);
             } else {
-                $response = ["message" => "Erro no Password"];
+                $response = ["message" => "Password Error!"];
                 return response($response, 422);
             }
         } else {
-            $response = ["message" =>'Usuário não encontrado!'];
+            $response = ["message" =>'User not found!'];
             return response($response, 422);
         }
     }
@@ -67,7 +67,7 @@ class ApiAuthController extends Controller
         if ($request->user()) {
             $token = $request->user()->token();
             $token->revoke();
-            $response = ['message' => 'Até a próxima!'];
+            $response = ['message' => 'Bye, bye!'];
             return response($response, 200);
         }
         return response(['message' => 'Unauthenticated.'], 401);

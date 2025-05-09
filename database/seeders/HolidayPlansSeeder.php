@@ -18,7 +18,7 @@ class HolidayPlansSeeder extends Seeder
         // Plano de exemplo associado ao admin
         HolidayPlan::create([
             'title' => 'Holiday Plan Example',
-            'description' => 'Exemplo de plano de férias.',
+            'description' => 'Holiday Plan Example.',
             'date' => Carbon::now()->addDays(30)->format('Y-m-d'),
             'location' => 'Rio de Janeiro, BR',
             'participants' => ['Admin Buzzvel'],

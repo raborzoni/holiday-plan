@@ -21,11 +21,11 @@ class HolidayPlanController extends Controller
     
         if ($holidayPlans->isEmpty()) {
             return response()->json([
-                'message' => 'Não há nenhum plano cadastrado no momento.'
+                'message' => 'There are no plans registered at the moment.'
             ], 200);
         }
         
-        return response()->json(['message' => 'Aqui estão seus planos cadastrados até o momento!!', $holidayPlans]);
+        return response()->json(['message' => 'Here are your plans registered so far!!', $holidayPlans]);
     }
 
     /**
@@ -52,11 +52,11 @@ class HolidayPlanController extends Controller
 
         $holidayPlan = HolidayPlan::create($request->all());
 
-        return response()->json(['message' => 'Plano criado com sucesso!!', $holidayPlan], 201);
+        return response()->json(['message' => 'Holiday Plan created successfully!!', $holidayPlan], 201);
     }
 
     /**
-     * Display the specified resource.
+     * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -67,19 +67,12 @@ class HolidayPlanController extends Controller
     
         if (!$holidayPlan) {
             return response()->json([
-                'message' => 'Não há registros para esse número de Plano de Férias!',
+                'message' => 'There are no records for this Holiday Plan number!',
             ], 404);
         }
         
-        return response()->json(['message' => 'Aqui está o seu plano ' . $holidayPlan->title . '.', $holidayPlan]);
+        return response()->json(['message' => 'Here is your plan ' . $holidayPlan->title . '.', $holidayPlan]);
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
 
     /**
      * Update the specified resource in storage.
@@ -101,7 +94,7 @@ class HolidayPlanController extends Controller
         $holidayPlan = HolidayPlan::findOrFail($id);
         $holidayPlan->update($request->all());
 
-        return response()->json(['message' => 'Plano atualizado com sucesso!!', $holidayPlan]);
+        return response()->json(['message' => 'Plan updated successfully!!', $holidayPlan]);
     }
 
     /**
@@ -116,7 +109,7 @@ class HolidayPlanController extends Controller
         $holidayPlan->delete();
 
         return response()->json([
-            'message' => 'Deletado com sucesso!',
+            'message' => 'Deleted successfully!',
         ], 200);
     }
 
