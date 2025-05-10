@@ -5,6 +5,10 @@ Dependências Utilizadas:
 - Laravel Passport - https://laravel.com/docs/12.x/passport
 - PHPUnit - https://laravel.com/docs/12.x/testing
 
+## URL para teste da aplicação
+Para testar a aplicação em tempo real, utilize a URL abaixo em sua ferramenta de testes de API(Postman, Insomnia) junto com as rotas definidas na sessão [Rotas e Endpoints](#rotas-e-endpoints)
+- `https://buzzvel.upsilan.com.br/`
+
 ## Instalação do projeto e dependências
 Primeiramente, você deve clonar o repositório no seu ambiente local usando o comando:
 - `$ git clone https://github.com/raborzoni/holiday-plan.git`
